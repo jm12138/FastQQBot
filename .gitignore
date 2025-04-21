@@ -176,3 +176,7 @@ cython_debug/
 # uv
 uv.lock
 .python-version
+
+# botpy
+botpy.log
+botpy.log.*
