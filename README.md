@@ -30,7 +30,7 @@
 
     6. 参考下图并根据需要配置指令 -> 保存配置
 
-        ![alt text](./public/function.png)
+        ![function](./public/function.png)
 
 
 4. 新建 .env 文件并按 [.env.example](./.env.example) 进行配置
