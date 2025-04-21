@@ -33,14 +33,14 @@
         ![function](./public/function.png)
 
 
-4. 新建 .env 文件并按 [.env.example](./.env.example) 进行配置
+4. 新建 .env 文件并参考 [.env.example](./example/hello/.env.example) 进行配置
 
     ```
     APP_ID=''
     APP_SECRET=''
     ```
 
-5. 参考 [main.py](./main.py) 编写机器人回复代码
+5. 参考样例 [bot.py](./example/hello/bot.py) 编写机器人回复代码
 
     ```python
     from os import getenv
@@ -60,8 +60,15 @@
         async def hello(self, message: Union[Message, GroupMessage], params: str):
             # params: 指令传入的参数文本
 
-            # 根据指令及传入的参数文本回复信息
-            await self.post_message(message=message, content=f"你好! {params}")
+            print(f"指令：你好")
+            print(f"参数：{params}")
+
+            # 根据指令及传入的参数文本回复信息回复
+            content = f"你好! {params}"
+
+            print(f"返回：{content}")
+
+            await self.post_message(message=message, content=content)
 
         async def on_create(self, message: Union[Message, GroupMessage]):
             # 注册函数
@@ -73,11 +80,11 @@
         load_dotenv()
 
         # 获取 AppID / AppSecret
-        appid = getenv("APP_ID")
-        secret = getenv("APP_SECRET")
+        APP_ID = getenv("APP_ID")
+        APP_SECRET = getenv("APP_SECRET")
 
         # 启动 QQ 机器人客户端
         intents = Intents.default()
         client = BotClient(intents=intents)
-        client.run(appid=appid, secret=secret)
+        client.run(appid=APP_ID, secret=APP_SECRET)
     ```
