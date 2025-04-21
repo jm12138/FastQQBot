@@ -1,6 +1,7 @@
+from os import getenv
 from typing import Union
-from argparse import ArgumentParser
 
+from dotenv import load_dotenv
 from fastqqbot import Client
 
 from botpy import Intents
@@ -21,15 +22,9 @@ class BotClient(Client):
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser()
-
-    parser.add_argument("--appid", type=str, help="AppID")
-    parser.add_argument("--secret", type=str, help="Secret")
-
-    args = parser.parse_args()
-
-    appid = args.appid
-    secret = args.secret
+    load_dotenv()
+    appid = getenv("APP_ID")
+    secret = getenv("APP_SECRET")
 
     intents = Intents.default()
     client = BotClient(intents=intents)
