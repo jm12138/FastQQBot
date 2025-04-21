@@ -88,3 +88,9 @@
         client = BotClient(intents=intents)
         client.run(appid=APP_ID, secret=APP_SECRET)
     ```
+
+## 样例项目
+
+1. [hello](./example/hello): 示例 QQ 机器人程序，实现简单的接收和回复信息功能
+
+2. [LLM](./example/llm/): 接入大模型 API 的 QQ 机器人，实现 AI 聊天机器人
